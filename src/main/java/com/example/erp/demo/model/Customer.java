@@ -44,13 +44,17 @@ public class Customer extends BaseEntity{
     private String language;
 
     // enums
-    // private Gender gender;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "gender", nullable = false)
+    private Gender gender;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "contact-method", nullable = false)
+    private ContactMethod contactMethod;
 
-    // private ContactMethod contactMethod;
-
-
-    //private CustomerType customerType;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "contact-method", nullable = false)
+    private CustomerType customerType;
 
     //relation
     // private Address address;
