@@ -1,8 +1,16 @@
 package com.example.erp.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.LastModifiedBy;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "license")
@@ -14,4 +22,34 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode(callSuper = false)
 public class License extends BaseEntity{
+
+    @Column(name = "license-key", unique = true, nullable = false)
+    private String licenseKey;
+
+    @Column(name = "license-name")
+    private String licenseName;
+
+    @NotNull(message = "Start date is required")
+    @Column(name = "start-date", nullable = false)
+    private LocalDate startDate;
+
+    @NotNull(message = "End date is required")
+    @Column(name = "end-date", nullable = false)
+    private LocalDate endDate;
+
+    @Column(name = "auto-renew")
+    private Boolean autoRenew;
+
+    @Column(name = "license-detail")
+    private String licenseDetail;
+
+    // enum
+//    private LicenseStatus licenseStatus;
+
+    // relation
+//    private Customer customer;
+//    private Product product;
+
+
+
 }
