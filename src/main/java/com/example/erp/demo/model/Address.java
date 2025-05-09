@@ -52,7 +52,14 @@ public class Address extends BaseEntity{
 
 
     // relation
-//    private Customer customer;
+    @OneToOne(
+            mappedBy = "address",
+            fetch = FetchType.LAZY,
+            optional = false
+    )
+    private Customer customer;
+
+
 //    private Producer producer;
 
 }

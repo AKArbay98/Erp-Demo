@@ -57,7 +57,22 @@ public class Customer extends BaseEntity{
     private CustomerType customerType;
 
     //relation
-    // private Address address;
+    @OneToOne(
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            optional = false
+    )
+    @JoinColumn(
+            name = "address_id",
+            nullable = false,
+            unique = true,
+            foreignKey = @ForeignKey(name = "fk_customer_address")
+    )
+    private Address address;
+
+
+
     // private List<License> licenses;
 
 }
