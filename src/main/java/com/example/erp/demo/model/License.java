@@ -44,7 +44,9 @@ public class License extends BaseEntity{
     private String licenseDetail;
 
     // enum
-//    private LicenseStatus licenseStatus;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "license-status", nullable = false, length = 20)
+    private LicenseStatus licenseStatus;
 
     // relation
 //    private Customer customer;
