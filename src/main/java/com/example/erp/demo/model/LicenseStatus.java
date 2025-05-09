@@ -14,4 +14,5 @@ public enum LicenseStatus {
     REVOKED("EXPIRED");
 
     private final String licenseStatusName;
+
 }
