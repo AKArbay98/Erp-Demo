@@ -12,5 +12,5 @@ public enum CustomerType {
     PERSONAL("Personal"),
     CORPORATE("Corporate");
 
-    private final String customerType;
+    private final String customerTypeName;
 }
