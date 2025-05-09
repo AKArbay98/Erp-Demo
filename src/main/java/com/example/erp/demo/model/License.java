@@ -49,7 +49,16 @@ public class License extends BaseEntity{
     private LicenseStatus licenseStatus;
 
     // relation
-//    private Customer customer;
+
+    @ManyToOne(fetch = FetchType.LAZY,
+            optional = false)
+    @JoinColumn(name = "customer_id",
+            nullable = false,
+            foreignKey = @ForeignKey(name = "fk_license_customer"))
+    private Customer customer;
+
+
+
 //    private Product product;
 
 
