@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: Erp-Demo
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/erp
+    username: postgres
+    password: alikarbay
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  doc:
+    api-docs:
+      enabled: true
+
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
