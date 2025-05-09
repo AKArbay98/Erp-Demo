@@ -52,7 +52,15 @@ public class Product extends BaseEntity{
     private String comment;
 
     // relation
-//    private List<License> licenses;
+    @OneToMany(
+            mappedBy = "product",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    private List<License> licenses;
+
+
 //    private Producer producer;
 
 

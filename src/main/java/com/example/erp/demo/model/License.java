@@ -57,10 +57,12 @@ public class License extends BaseEntity{
             foreignKey = @ForeignKey(name = "fk_license_customer"))
     private Customer customer;
 
-
-
-//    private Product product;
-
-
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(
+            name = "product_id",
+            nullable = false,
+            foreignKey = @ForeignKey(name = "fk_license_product")
+    )
+    private Product product;
 
 }
