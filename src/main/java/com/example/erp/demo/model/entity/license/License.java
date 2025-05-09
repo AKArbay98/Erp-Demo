@@ -1,16 +1,14 @@
-package com.example.erp.demo.model;
+package com.example.erp.demo.model.entity.license;
 
+import com.example.erp.demo.model.entity.BaseEntity;
+import com.example.erp.demo.model.entity.product.Product;
+import com.example.erp.demo.model.entity.customer.Customer;
+import com.example.erp.demo.model.enumeration.LicenseStatus;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.LastModifiedBy;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "license")
@@ -21,7 +19,7 @@ import java.time.LocalDateTime;
 @Builder
 @ToString
 @EqualsAndHashCode(callSuper = false)
-public class License extends BaseEntity{
+public class License extends BaseEntity {
 
     @Column(name = "license-key", unique = true, nullable = false)
     private String licenseKey;

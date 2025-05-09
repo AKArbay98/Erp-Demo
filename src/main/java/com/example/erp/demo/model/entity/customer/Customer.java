@@ -1,5 +1,11 @@
-package com.example.erp.demo.model;
+package com.example.erp.demo.model.entity.customer;
 
+import com.example.erp.demo.model.entity.BaseEntity;
+import com.example.erp.demo.model.entity.license.License;
+import com.example.erp.demo.model.entity.address.Address;
+import com.example.erp.demo.model.enumeration.ContactMethod;
+import com.example.erp.demo.model.enumeration.CustomerType;
+import com.example.erp.demo.model.enumeration.Gender;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,7 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode(callSuper = false)
-public class Customer extends BaseEntity{
+public class Customer extends BaseEntity {
 
     @Column(name = "firstName", nullable = false)
     private String firstName;

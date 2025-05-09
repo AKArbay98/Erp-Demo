@@ -1,5 +1,7 @@
-package com.example.erp.demo.model;
+package com.example.erp.demo.model.entity.address;
 
+import com.example.erp.demo.model.entity.BaseEntity;
+import com.example.erp.demo.model.entity.customer.Customer;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,7 +14,7 @@ import lombok.*;
 @Builder
 @ToString
 @EqualsAndHashCode(callSuper = false)
-public class Address extends BaseEntity{
+public class Address extends BaseEntity {
 
     @Column(name = "country",
             length = 50,

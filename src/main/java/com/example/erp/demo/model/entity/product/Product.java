@@ -1,6 +1,8 @@
-package com.example.erp.demo.model;
+package com.example.erp.demo.model.entity.product;
 
 
+import com.example.erp.demo.model.entity.BaseEntity;
+import com.example.erp.demo.model.entity.license.License;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Future;
 import lombok.*;
@@ -18,7 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode(callSuper = false)
-public class Product extends BaseEntity{
+public class Product extends BaseEntity {
 
     @Column(name = "name")
     private String name;

@@ -1,4 +1,4 @@
-package com.example.erp.demo.model;
+package com.example.erp.demo.model.enumeration;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
