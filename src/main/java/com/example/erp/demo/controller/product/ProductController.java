@@ -1,16 +1,15 @@
 package com.example.erp.demo.controller.product;
 
+import com.example.erp.demo.model.dto.product.ProductRequestDto;
 import com.example.erp.demo.model.dto.product.ProductResponseDto;
 import com.example.erp.demo.service.product.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,6 +35,17 @@ public class ProductController {
     @GetMapping("/{productId}")
     public ResponseEntity<ProductResponseDto> getProduct(@PathVariable Long productId){
         return ResponseEntity.ok(productService.getProductById(productId));
+    }
+
+    @Operation(summary = "Create a new product")
+    @ApiResponses({
+            @ApiResponse(responseCode = "201", description = "Product created"),
+            @ApiResponse(responseCode = "400", description = "Invalid request data")
+    })
+    @PostMapping
+    public ResponseEntity<Void> createProduct(@RequestBody ProductRequestDto productRequestDto){
+        productService.createProduct(productRequestDto);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
 }

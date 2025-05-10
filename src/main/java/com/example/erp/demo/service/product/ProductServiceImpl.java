@@ -1,6 +1,7 @@
 package com.example.erp.demo.service.product;
 
 import com.example.erp.demo.mapper.product.ProductMapperImpl;
+import com.example.erp.demo.model.dto.product.ProductRequestDto;
 import com.example.erp.demo.model.dto.product.ProductResponseDto;
 import com.example.erp.demo.model.entity.product.Product;
 import com.example.erp.demo.repository.ProductRepository;
@@ -42,6 +43,12 @@ public class ProductServiceImpl implements ProductService {
             throw new IllegalArgumentException("Product does not exist.");
         }
         return productMapper.toProductDtoFromProductEntity(product);
+    }
+
+    @Override
+    public void createProduct(ProductRequestDto productRequestDto) {
+        Product product = productMapper.toProductEntityFromProductDto(productRequestDto);
+        productRepository.save(product);
     }
 
 
