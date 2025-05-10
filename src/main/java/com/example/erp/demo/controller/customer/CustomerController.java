@@ -1,6 +1,7 @@
 package com.example.erp.demo.controller.customer;
 
 import com.example.erp.demo.model.dto.customer.CustomerResponseDto;
+import com.example.erp.demo.model.entity.customer.Customer;
 import com.example.erp.demo.service.customer.CustomerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -31,4 +32,19 @@ public class CustomerController {
     public ResponseEntity<List<CustomerResponseDto>> getAllCustomer(){
         return ResponseEntity.ok(customerService.getAllCustomer());
     }
+
+    @Operation(summary = "Retrieve a customer by ID")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Customer found",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = CustomerResponseDto.class))),
+            @ApiResponse(responseCode = "404", description = "Customer not found",
+                    content = @Content)
+    })
+    @GetMapping("/{customerId}")
+    public ResponseEntity<CustomerResponseDto> getCustomer(@PathVariable Long customerId){
+        return ResponseEntity.ok(customerService.getCustomerById(customerId));
+    }
+
+
 }

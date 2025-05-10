@@ -37,4 +37,13 @@ public class CustomerServiceImpl implements CustomerService {
         }
         return customerResponseDtoList;
     }
+
+    @Override
+    public CustomerResponseDto getCustomerById(Long customerId) {
+        Customer customer = customerRepository.findById(customerId).orElse(null);
+        if(customer == null){
+            throw new IllegalArgumentException("Customer does not exist.");
+        }
+        return customerMapper.toCustomerDtoFromCustomerEntity(customer);
+    }
 }

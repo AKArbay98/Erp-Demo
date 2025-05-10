@@ -8,4 +8,5 @@ public interface CustomerService {
 
     List<CustomerResponseDto> getAllCustomer();
 
+    CustomerResponseDto getCustomerById(Long customerId);
 }
