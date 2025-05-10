@@ -1,5 +1,6 @@
 package com.example.erp.demo.service.product;
 
+import com.example.erp.demo.exception.ProductNotFoundException;
 import com.example.erp.demo.mapper.product.ProductMapperImpl;
 import com.example.erp.demo.model.dto.product.ProductRequestDto;
 import com.example.erp.demo.model.dto.product.ProductResponseDto;
@@ -24,12 +25,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductResponseDto> getAllProduct() {
-        List<Product> productList = productRepository.findAll();
-        if(productList == null || productList.isEmpty()){
-            throw new IllegalArgumentException("Customer does not exist.");
+        List<Product> products = productRepository.findAll();
+        if(products.isEmpty()){
+            throw new ProductNotFoundException("Product does not exist.");
         }
         List<ProductResponseDto> productResponseDtoList = new ArrayList<>();
-        for(Product product : productList){
+        for(Product product : products){
             ProductResponseDto productResponseDto = productMapper.toProductDtoFromProductEntity(product);
             productResponseDtoList.add(productResponseDto);
         }
@@ -40,7 +41,7 @@ public class ProductServiceImpl implements ProductService {
     public ProductResponseDto getProductById(Long productId) {
         Product product = productRepository.findById(productId).orElse(null);
         if(product == null){
-            throw new IllegalArgumentException("Product does not exist.");
+            throw new ProductNotFoundException("Product does not exist.");
         }
         return productMapper.toProductDtoFromProductEntity(product);
     }
