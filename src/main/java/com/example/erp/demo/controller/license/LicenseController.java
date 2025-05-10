@@ -27,5 +27,11 @@ public class LicenseController {
         return licenseService.isValidLicenseKey(licenseKey);
     }
 
+//    @Operation(summary = "Get customer by license key")
+//
+//    @Operation(summary = "Get product by license key")
+//
+//    @Operation(summary = "Generate a new license for a customer and product")
+
 
 }
