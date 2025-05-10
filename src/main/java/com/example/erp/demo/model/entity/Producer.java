@@ -1,0 +1,47 @@
+package com.example.erp.demo.model.entity;
+
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.*;
+import org.hibernate.validator.constraints.URL;
+
+
+@Entity
+@Table(name = "producer")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode(callSuper = false)
+public class Producer extends BaseEntity{
+
+    @NotBlank(message = "Producer name is required")
+    @Size(max = 150, message = "Producer name cannot exceed 150 characters")
+    @Column(name = "name", nullable = false, length = 150)
+    private String name;
+
+    @Size(max = 500, message = "Description cannot exceed 500 characters")
+    @Column(name = "description")
+    private String description;
+
+    @Email(message = "Must be a valid email address")
+    @Column(name = "contact-mail", length = 120)
+    private String contactEmail;
+
+    @Column(name = "contact-phone", length = 20)
+    private String contactPhone;
+
+    @URL(message = "Must be a valid URL")
+    @Column(name = "website", length = 200)
+    private String websiteUrl;
+
+
+    // relation
+//    private List<Product> products;
+//    private Address address;
+
+}
