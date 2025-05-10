@@ -1,6 +1,7 @@
-package com.example.erp.demo.model.entity;
+package com.example.erp.demo.model.entity.producer;
 
 
+import com.example.erp.demo.model.entity.BaseEntity;
 import com.example.erp.demo.model.entity.address.Address;
 import com.example.erp.demo.model.entity.product.Product;
 import jakarta.persistence.*;
@@ -21,7 +22,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode(callSuper = false)
-public class Producer extends BaseEntity{
+public class Producer extends BaseEntity {
 
     @NotBlank(message = "Producer name is required")
     @Size(max = 150, message = "Producer name cannot exceed 150 characters")

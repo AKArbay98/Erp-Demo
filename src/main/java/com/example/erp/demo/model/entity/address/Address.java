@@ -1,7 +1,7 @@
 package com.example.erp.demo.model.entity.address;
 
 import com.example.erp.demo.model.entity.BaseEntity;
-import com.example.erp.demo.model.entity.Producer;
+import com.example.erp.demo.model.entity.producer.Producer;
 import com.example.erp.demo.model.entity.customer.Customer;
 import jakarta.persistence.*;
 import lombok.*;

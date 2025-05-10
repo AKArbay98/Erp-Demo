@@ -2,7 +2,7 @@ package com.example.erp.demo.model.entity.product;
 
 
 import com.example.erp.demo.model.entity.BaseEntity;
-import com.example.erp.demo.model.entity.Producer;
+import com.example.erp.demo.model.entity.producer.Producer;
 import com.example.erp.demo.model.entity.license.License;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Future;
