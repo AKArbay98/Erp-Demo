@@ -34,4 +34,15 @@ public class ProductServiceImpl implements ProductService {
         }
         return productResponseDtoList;
     }
+
+    @Override
+    public ProductResponseDto getProductById(Long productId) {
+        Product product = productRepository.findById(productId).orElse(null);
+        if(product == null){
+            throw new IllegalArgumentException("Product does not exist.");
+        }
+        return productMapper.toProductDtoFromProductEntity(product);
+    }
+
+
 }

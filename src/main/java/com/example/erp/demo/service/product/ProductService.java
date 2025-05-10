@@ -7,4 +7,6 @@ import java.util.List;
 public interface ProductService {
 
     List<ProductResponseDto> getAllProduct();
+
+    ProductResponseDto getProductById(Long productId);
 }
