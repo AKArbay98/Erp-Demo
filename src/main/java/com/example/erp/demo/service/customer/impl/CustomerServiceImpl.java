@@ -1,20 +1,14 @@
 package com.example.erp.demo.service.customer.impl;
 
+import com.example.erp.demo.exception.CustomerNotFoundException;
 import com.example.erp.demo.mapper.customer.CustomerMapperImpl;
 import com.example.erp.demo.model.dto.customer.CustomerRequestDto;
 import com.example.erp.demo.model.dto.customer.CustomerResponseDto;
 import com.example.erp.demo.model.entity.customer.Customer;
 import com.example.erp.demo.repository.CustomerRepository;
 import com.example.erp.demo.service.customer.CustomerService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,12 +28,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<CustomerResponseDto> getAllCustomer() {
-        List<Customer> customerList = customerRepository.findAll();
-        if(customerList == null || customerList.isEmpty()){
-            throw new IllegalArgumentException("Customer does not exist.");
+        List<Customer> customers = customerRepository.findAll();
+        if(customers.isEmpty()){
+            throw new CustomerNotFoundException("No customers found.");
         }
         List<CustomerResponseDto> customerResponseDtoList = new ArrayList<>();
-        for(Customer customer : customerList){
+        for(Customer customer : customers){
             CustomerResponseDto customerResponseDto = customerMapper
                     .toCustomerDtoFromCustomerEntity(customer);
             customerResponseDtoList.add(customerResponseDto);
@@ -51,7 +45,7 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerResponseDto getCustomerById(Long customerId) {
         Customer customer = customerRepository.findById(customerId).orElse(null);
         if(customer == null){
-            throw new IllegalArgumentException("Customer does not exist.");
+            throw new CustomerNotFoundException("No customers found.");
         }
         return customerMapper.toCustomerDtoFromCustomerEntity(customer);
     }
