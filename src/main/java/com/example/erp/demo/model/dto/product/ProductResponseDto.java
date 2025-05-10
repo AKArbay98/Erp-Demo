@@ -1,10 +1,15 @@
 package com.example.erp.demo.model.dto.product;
 
 import com.example.erp.demo.model.entity.address.Address;
+import com.example.erp.demo.model.entity.license.License;
+import com.example.erp.demo.model.entity.producer.Producer;
 import com.example.erp.demo.model.entity.product.Product;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -13,15 +18,25 @@ public class ProductResponseDto {
 
     private String name;
 
+    private String productVersion;
+
     private String description;
 
-    private String contactEmail;
+    private String sku;
 
-    private String contactPhone;
+    private BigDecimal basePrice;
 
-    private String websiteUrl;
+    private BigDecimal discountedPrice;
 
-    private List<Product> products;
+    private LocalDateTime releaseDate;
 
-    private Address address;
+    private LocalDate supportExpiration;
+
+    private BigDecimal customerSatisfaction;
+
+    private String comment;
+
+    private List<License> licenses;
+
+    private Producer producer;
 }
