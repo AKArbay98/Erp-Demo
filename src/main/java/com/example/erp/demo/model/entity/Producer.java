@@ -2,12 +2,15 @@ package com.example.erp.demo.model.entity;
 
 
 import com.example.erp.demo.model.entity.address.Address;
+import com.example.erp.demo.model.entity.product.Product;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.validator.constraints.URL;
+
+import java.util.List;
 
 
 @Entity
@@ -42,7 +45,13 @@ public class Producer extends BaseEntity{
 
 
     // relation
-//    private List<Product> products;
+    @OneToMany(
+            mappedBy = "producer",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    private List<Product> products;
 
 
     @OneToOne(

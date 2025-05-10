@@ -2,6 +2,7 @@ package com.example.erp.demo.model.entity.product;
 
 
 import com.example.erp.demo.model.entity.BaseEntity;
+import com.example.erp.demo.model.entity.Producer;
 import com.example.erp.demo.model.entity.license.License;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Future;
@@ -63,7 +64,12 @@ public class Product extends BaseEntity {
     private List<License> licenses;
 
 
-//    private Producer producer;
-
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(
+            name = "producer_id",
+            nullable = false,
+            foreignKey = @ForeignKey(name = "fk_product_producer")
+    )
+    private Producer producer;
 
 }
