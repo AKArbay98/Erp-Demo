@@ -1,6 +1,7 @@
 package com.example.erp.demo.model.entity.address;
 
 import com.example.erp.demo.model.entity.BaseEntity;
+import com.example.erp.demo.model.entity.Producer;
 import com.example.erp.demo.model.entity.customer.Customer;
 import jakarta.persistence.*;
 import lombok.*;
@@ -62,6 +63,11 @@ public class Address extends BaseEntity {
     private Customer customer;
 
 
-//    private Producer producer;
+    @OneToOne(
+            mappedBy = "address",
+            fetch = FetchType.LAZY,
+            optional = false
+    )
+    private Producer producer;
 
 }

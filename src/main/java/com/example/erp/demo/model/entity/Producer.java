@@ -1,6 +1,7 @@
 package com.example.erp.demo.model.entity;
 
 
+import com.example.erp.demo.model.entity.address.Address;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -42,6 +43,20 @@ public class Producer extends BaseEntity{
 
     // relation
 //    private List<Product> products;
-//    private Address address;
+
+
+    @OneToOne(
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            optional = false
+    )
+    @JoinColumn(
+            name = "address_id",
+            nullable = false,
+            unique = true,
+            foreignKey = @ForeignKey(name = "fk_producer_address")
+    )
+    private Address address;
 
 }
