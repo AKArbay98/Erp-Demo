@@ -1,11 +1,20 @@
 package com.example.erp.demo.service.customer.impl;
 
 import com.example.erp.demo.mapper.customer.CustomerMapperImpl;
+import com.example.erp.demo.model.dto.customer.CustomerRequestDto;
 import com.example.erp.demo.model.dto.customer.CustomerResponseDto;
 import com.example.erp.demo.model.entity.customer.Customer;
 import com.example.erp.demo.repository.CustomerRepository;
 import com.example.erp.demo.service.customer.CustomerService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,4 +55,11 @@ public class CustomerServiceImpl implements CustomerService {
         }
         return customerMapper.toCustomerDtoFromCustomerEntity(customer);
     }
+
+    @Override
+    public void createCustomer(CustomerRequestDto customerRequestDto) {
+        Customer customer = customerMapper.toCustomerEntityFromCustomerDto(customerRequestDto);
+        customerRepository.save(customer);
+    }
+
 }

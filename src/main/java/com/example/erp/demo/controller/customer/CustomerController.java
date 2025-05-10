@@ -1,5 +1,6 @@
 package com.example.erp.demo.controller.customer;
 
+import com.example.erp.demo.model.dto.customer.CustomerRequestDto;
 import com.example.erp.demo.model.dto.customer.CustomerResponseDto;
 import com.example.erp.demo.model.entity.customer.Customer;
 import com.example.erp.demo.service.customer.CustomerService;
@@ -9,11 +10,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -44,6 +43,18 @@ public class CustomerController {
     @GetMapping("/{customerId}")
     public ResponseEntity<CustomerResponseDto> getCustomer(@PathVariable Long customerId){
         return ResponseEntity.ok(customerService.getCustomerById(customerId));
+    }
+
+    @Operation(summary = "Create a new customer   ")
+    @ApiResponses({
+            @ApiResponse(responseCode = "201", description = "Customer created successfully"),
+            @ApiResponse(responseCode = "400", description = "Invalid request data",
+                    content = @Content)
+    })
+    @PostMapping
+    public ResponseEntity<Void> createCustomer(@RequestBody CustomerRequestDto customerRequestDto){
+        customerService.createCustomer(customerRequestDto);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
 
