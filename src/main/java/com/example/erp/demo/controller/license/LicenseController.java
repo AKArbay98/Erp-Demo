@@ -1,6 +1,5 @@
 package com.example.erp.demo.controller.license;
 
-import com.example.erp.demo.model.dto.customer.CustomerResponseDto;
 import com.example.erp.demo.model.dto.license.LicenseRequestDto;
 import com.example.erp.demo.service.license.LicenseService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -35,8 +34,8 @@ public class LicenseController {
             @ApiResponse(responseCode = "400", description = "Invalid request data")
     })
     @PostMapping
-    public ResponseEntity<Void> createLicenseKey(@RequestBody LicenseRequestDto license){
-        licenseService.createLicenseKey(license);
+    public ResponseEntity<Void> createLicenseKey(Long customerId, Long productId){
+        licenseService.createLicenseKey(customerId,productId);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 

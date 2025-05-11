@@ -6,5 +6,5 @@ public interface LicenseService {
 
     boolean isValidLicenseKey(String licenseKey);
 
-    void createLicenseKey(LicenseRequestDto license);
+    String createLicenseKey(Long customerId, Long productId);
 }
