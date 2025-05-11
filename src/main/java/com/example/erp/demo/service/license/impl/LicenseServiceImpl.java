@@ -1,5 +1,7 @@
 package com.example.erp.demo.service.license.impl;
 
+import com.example.erp.demo.exception.LicenseNotFoundException;
+import com.example.erp.demo.model.dto.customer.CustomerResponseDto;
 import com.example.erp.demo.model.entity.license.License;
 import com.example.erp.demo.model.enumeration.LicenseStatus;
 import com.example.erp.demo.repository.LicenseRepository;
@@ -25,4 +27,6 @@ public class LicenseServiceImpl implements LicenseService {
                 LocalDate.now().isBefore(license.getEndDate()) &&
                 LocalDate.now().isAfter(license.getStartDate());
     }
+
+
 }

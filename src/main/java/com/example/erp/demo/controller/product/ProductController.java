@@ -48,4 +48,14 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+    @Operation(summary = "Get product by license key")
+    @ApiResponses({
+            @ApiResponse(responseCode = "201", description = "Product found by License Key"),
+            @ApiResponse(responseCode = "400", description = "Product not found")
+    })
+    @GetMapping("/{licenseKey}")
+    public ResponseEntity<ProductResponseDto> getProductByLicenseKey(@PathVariable String licenseKey){
+        return ResponseEntity.ok(productService.getProductByLicenseKey(licenseKey));
+    }
+
 }

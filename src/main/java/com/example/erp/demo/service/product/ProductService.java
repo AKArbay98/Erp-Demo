@@ -12,4 +12,6 @@ public interface ProductService {
     ProductResponseDto getProductById(Long productId);
 
     void createProduct(ProductRequestDto productRequestDto);
+
+    ProductResponseDto getProductByLicenseKey(String licenseKey);
 }

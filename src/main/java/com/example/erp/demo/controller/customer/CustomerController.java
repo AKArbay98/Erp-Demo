@@ -57,5 +57,17 @@ public class CustomerController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+    @Operation(summary = "Get customer by license key")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "License details returned"),
+            @ApiResponse(responseCode = "404", description = "License not found")
+    })
+    @GetMapping("/{licenseKey}")
+    public ResponseEntity<CustomerResponseDto> getCustomerByLicenseKey(@PathVariable String licenseKey){
+        return ResponseEntity.ok(customerService.getCustomerByLicenseKey(licenseKey));
+    }
+
+
+
 
 }

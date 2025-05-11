@@ -12,4 +12,6 @@ public interface CustomerService {
     CustomerResponseDto getCustomerById(Long customerId);
 
     void createCustomer(CustomerRequestDto customerRequestDto);
+
+    CustomerResponseDto getCustomerByLicenseKey(String licenseKey);
 }
