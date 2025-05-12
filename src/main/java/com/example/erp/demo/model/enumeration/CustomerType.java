@@ -9,8 +9,8 @@ import lombok.ToString;
 @ToString
 public enum CustomerType {
 
-    PERSONAL("Personal"),
-    CORPORATE("Corporate");
+    PERSONAL("PERSONAL"),
+    CORPORATE("CORPORATE");
 
     private final String customerTypeName;
 }
