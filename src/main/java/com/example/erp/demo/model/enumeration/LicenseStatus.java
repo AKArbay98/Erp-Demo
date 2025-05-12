@@ -11,7 +11,7 @@ public enum LicenseStatus {
 
     ACTIVE("ACTIVE"),
     EXPIRED("EXPIRED"),
-    REVOKED("EXPIRED");
+    REVOKED("REVOKED");
 
     private final String licenseStatusName;
 
