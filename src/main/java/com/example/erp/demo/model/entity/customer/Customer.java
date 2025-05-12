@@ -23,13 +23,13 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 public class Customer extends BaseEntity {
 
-    @Column(name = "firstName", nullable = false)
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "lastName", nullable = false)
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "dateOfBirth", nullable = false)
+    @Column(name = "date_of_birth", nullable = false)
     private LocalDate dateOfBirth;
 
     @Column(name = "tc", nullable = false)
@@ -41,7 +41,7 @@ public class Customer extends BaseEntity {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "photoUrl")
+    @Column(name = "photo_url")
     private String photoUrl;
 
     @Column(name = "occupation")
@@ -56,11 +56,11 @@ public class Customer extends BaseEntity {
     private Gender gender;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "contact-method", nullable = false)
+    @Column(name = "contact_method", nullable = false)
     private ContactMethod contactMethod;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "contact-method", nullable = false)
+    @Column(name = "customer_type", nullable = false)
     private CustomerType customerType;
 
     //relation
