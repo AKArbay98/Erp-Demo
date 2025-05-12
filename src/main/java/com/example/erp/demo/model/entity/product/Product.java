@@ -23,10 +23,10 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 public class Product extends BaseEntity {
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "product-version")
+    @Column(name = "product_version", nullable = false)
     private String productVersion;
 
     @Column(name = "description")
@@ -35,20 +35,20 @@ public class Product extends BaseEntity {
     @Column(name = "sku")
     private String sku;
 
-    @Column(name = "base-price")
+    @Column(name = "base_price", nullable = false)
     private BigDecimal basePrice;
 
-    @Column(name = "discounted-price")
+    @Column(name = "discounted_price")
     private BigDecimal discountedPrice;
 
-    @Column(name = "release-date")
+    @Column(name = "release_date")
     private LocalDateTime releaseDate;
 
     @Future
-    @Column(name = "support-expiration")
+    @Column(name = "support_expiration")
     private LocalDate supportExpiration;
 
-    @Column(name = "customer-satisfaction")
+    @Column(name = "customer_satisfaction")
     private BigDecimal customerSatisfaction;
 
     @Column(name = "comment")
