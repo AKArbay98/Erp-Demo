@@ -24,22 +24,25 @@ public abstract class BaseEntity {
     private Long id;
 
     @CreationTimestamp
-    @Column(updatable = false)
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     @CreatedBy
-    @Column(updatable = false)
+    @Column(name = "created_by")
     private String createdBy;
 
     @LastModifiedBy
+    @Column(name = "updated_by")
     private String updatedBy;
 
     @Version
+    @Column(name = "version")
     private Long version;
 
-    @Column(name = "isActive")
+    @Column(name = "is_active")
     private Boolean isActive;
 }
