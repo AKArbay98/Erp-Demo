@@ -1,5 +1,7 @@
 package com.example.erp.demo.model.dto.product;
 
+import com.example.erp.demo.model.dto.license.LicenseRequestDto;
+import com.example.erp.demo.model.dto.producer.ProducerRequestDto;
 import com.example.erp.demo.model.entity.license.License;
 import com.example.erp.demo.model.entity.producer.Producer;
 import lombok.Getter;
@@ -34,7 +36,7 @@ public class ProductRequestDto {
 
     private String comment;
 
-    private List<License> licenses;
+    private List<LicenseRequestDto> licenses;
 
-    private Producer producer;
+    private ProducerRequestDto producer;
 }

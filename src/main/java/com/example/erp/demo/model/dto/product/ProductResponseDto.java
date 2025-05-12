@@ -1,5 +1,7 @@
 package com.example.erp.demo.model.dto.product;
 
+import com.example.erp.demo.model.dto.license.LicenseResponseDto;
+import com.example.erp.demo.model.dto.producer.ProducerResponseDto;
 import com.example.erp.demo.model.entity.address.Address;
 import com.example.erp.demo.model.entity.license.License;
 import com.example.erp.demo.model.entity.producer.Producer;
@@ -36,7 +38,7 @@ public class ProductResponseDto {
 
     private String comment;
 
-    private List<License> licenses;
+    private List<LicenseResponseDto> licenses;
 
-    private Producer producer;
+    private ProducerResponseDto producer;
 }
