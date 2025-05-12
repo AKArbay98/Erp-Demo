@@ -1,5 +1,7 @@
 package com.example.erp.demo.model.dto.producer;
 
+import com.example.erp.demo.model.dto.address.AddressRequestDto;
+import com.example.erp.demo.model.dto.product.ProductRequestDto;
 import com.example.erp.demo.model.entity.address.Address;
 import com.example.erp.demo.model.entity.product.Product;
 import lombok.Getter;
@@ -21,7 +23,7 @@ public class ProducerRequestDto {
 
     private String websiteUrl;
 
-    private List<Product> products;
+    private List<ProductRequestDto> products;
 
-    private Address address;
+    private AddressRequestDto address;
 }
