@@ -1,4 +1,4 @@
-package com.example.erp.demo.service.product;
+package com.example.erp.demo.service.product.impl;
 
 import com.example.erp.demo.exception.LicenseNotFoundException;
 import com.example.erp.demo.exception.ProductNotFoundException;
@@ -8,6 +8,7 @@ import com.example.erp.demo.model.dto.product.ProductResponseDto;
 import com.example.erp.demo.model.entity.product.Product;
 import com.example.erp.demo.repository.LicenseRepository;
 import com.example.erp.demo.repository.ProductRepository;
+import com.example.erp.demo.service.product.ProductService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
