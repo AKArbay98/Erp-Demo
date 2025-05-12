@@ -34,14 +34,14 @@ public class Producer extends BaseEntity {
     private String description;
 
     @Email(message = "Must be a valid email address")
-    @Column(name = "contact-mail", length = 120)
+    @Column(name = "contact_mail", length = 100)
     private String contactEmail;
 
-    @Column(name = "contact-phone", length = 20)
+    @Column(name = "contact_phone", length = 20)
     private String contactPhone;
 
     @URL(message = "Must be a valid URL")
-    @Column(name = "website", length = 200)
+    @Column(name = "website", length = 100)
     private String websiteUrl;
 
 
