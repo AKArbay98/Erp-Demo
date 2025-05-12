@@ -9,9 +9,9 @@ import lombok.ToString;
 @ToString
 public enum ContactMethod {
 
-    EMAIL("E-Mail"),
-    PHONE("Phone"),
-    POST("Post");
+    EMAIL("EMAIL"),
+    PHONE("PHONE"),
+    POST("POST");
 
     private final String contactMethodName;
 }
