@@ -1,5 +1,7 @@
 package com.example.erp.demo.model.dto.customer;
 
+import com.example.erp.demo.model.dto.address.AddressRequestDto;
+import com.example.erp.demo.model.dto.license.LicenseRequestDto;
 import com.example.erp.demo.model.entity.address.Address;
 import com.example.erp.demo.model.entity.license.License;
 import com.example.erp.demo.model.enumeration.ContactMethod;
@@ -27,6 +29,6 @@ public class CustomerRequestDto {
     private Gender gender;
     private ContactMethod contactMethod;
     private CustomerType customerType;
-    private Address address;
-    private List<License> licenses;
+    private AddressRequestDto address;
+    private List<LicenseRequestDto> licenses;
 }
