@@ -21,29 +21,36 @@ import java.time.LocalDate;
 @EqualsAndHashCode(callSuper = false)
 public class License extends BaseEntity {
 
-    @Column(name = "license-key", unique = true, nullable = false)
+    @Column(name = "license_key",
+            unique = true,
+            nullable = false)
     private String licenseKey;
 
-    @Column(name = "license-name")
+    @Column(name = "license_name",
+            nullable = false)
     private String licenseName;
 
     @NotNull(message = "Start date is required")
-    @Column(name = "start-date", nullable = false)
+    @Column(name = "start_date",
+            nullable = false)
     private LocalDate startDate;
 
     @NotNull(message = "End date is required")
-    @Column(name = "end-date", nullable = false)
+    @Column(name = "end_date",
+            nullable = false)
     private LocalDate endDate;
 
-    @Column(name = "auto-renew")
+    @Column(name = "auto_renew")
     private Boolean autoRenew;
 
-    @Column(name = "license-detail")
+    @Column(name = "license_detail")
     private String licenseDetail;
 
     // enum
     @Enumerated(EnumType.STRING)
-    @Column(name = "license-status", nullable = false, length = 20)
+    @Column(name = "license_status",
+            nullable = false,
+            length = 20)
     private LicenseStatus licenseStatus;
 
     // relation
