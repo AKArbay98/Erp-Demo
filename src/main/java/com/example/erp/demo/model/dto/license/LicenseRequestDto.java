@@ -1,5 +1,7 @@
 package com.example.erp.demo.model.dto.license;
 
+import com.example.erp.demo.model.dto.customer.CustomerRequestDto;
+import com.example.erp.demo.model.dto.product.ProductRequestDto;
 import com.example.erp.demo.model.entity.customer.Customer;
 import com.example.erp.demo.model.entity.product.Product;
 import com.example.erp.demo.model.enumeration.LicenseStatus;
@@ -26,7 +28,7 @@ public class LicenseRequestDto {
 
     private String licenseDetail;
 
-    private Customer customer;
+    private CustomerRequestDto customer;
 
-    private Product product;
+    private ProductRequestDto product;
 }
