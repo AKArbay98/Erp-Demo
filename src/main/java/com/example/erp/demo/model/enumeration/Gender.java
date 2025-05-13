@@ -1,11 +1,9 @@
 package com.example.erp.demo.model.enumeration;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
 @Getter
-@AllArgsConstructor
 @ToString
 public enum Gender {
 
@@ -14,4 +12,9 @@ public enum Gender {
 
     private final String code;
     private final String displayName;
+
+    Gender(String code, String displayName) {
+        this.code = code;
+        this.displayName = displayName;
+    }
 }
