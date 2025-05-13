@@ -1,13 +1,25 @@
 package com.example.erp.demo.mapper.product;
 
+import com.example.erp.demo.mapper.license.LicenseMapper;
+import com.example.erp.demo.mapper.producer.ProducerMapper;
 import com.example.erp.demo.model.dto.product.ProductRequestDto;
 import com.example.erp.demo.model.dto.product.ProductResponseDto;
 import com.example.erp.demo.model.entity.product.Product;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 
 @Component
 public class ProductMapperImpl implements ProductMapper{
+
+    private final LicenseMapper licenseMapper;
+    private final ProducerMapper producerMapper;
+
+    public ProductMapperImpl(@Lazy LicenseMapper licenseMapper,
+                             @Lazy ProducerMapper producerMapper) {
+        this.licenseMapper = licenseMapper;
+        this.producerMapper = producerMapper;
+    }
 
     @Override
     public ProductResponseDto toProductDtoFromProductEntity(Product product) {
@@ -22,9 +34,6 @@ public class ProductMapperImpl implements ProductMapper{
         productResponseDto.setSupportExpiration(product.getSupportExpiration());
         productResponseDto.setCustomerSatisfaction(product.getCustomerSatisfaction());
         productResponseDto.setComment(product.getComment());
-
-        // relation lara da bak
-
         return productResponseDto;
     }
 
@@ -44,9 +53,6 @@ public class ProductMapperImpl implements ProductMapper{
         product.setSupportExpiration(productRequestDto.getSupportExpiration());
         product.setCustomerSatisfaction(productRequestDto.getCustomerSatisfaction());
         product.setComment(productRequestDto.getComment());
-
-        // relation lara da bak
-
         return product;
     }
 }
