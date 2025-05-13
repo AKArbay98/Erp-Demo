@@ -1,17 +1,24 @@
 package com.example.erp.demo.mapper.customer;
 
+import com.example.erp.demo.mapper.address.AddressMapper;
+import com.example.erp.demo.mapper.license.LicenseMapper;
 import com.example.erp.demo.model.dto.customer.CustomerRequestDto;
 import com.example.erp.demo.model.dto.customer.CustomerResponseDto;
 import com.example.erp.demo.model.entity.customer.Customer;
-import com.example.erp.demo.model.enumeration.ContactMethod;
-import com.example.erp.demo.model.enumeration.CustomerType;
-import com.example.erp.demo.model.enumeration.Gender;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
-
-import java.time.LocalDate;
 
 @Component
 public class CustomerMapperImpl implements CustomerMapper {
+
+    private final AddressMapper addressMapper;
+    private final LicenseMapper licenseMapper;
+
+    public CustomerMapperImpl(@Lazy AddressMapper addressMapper,
+                              @Lazy LicenseMapper licenseMapper) {
+        this.addressMapper = addressMapper;
+        this.licenseMapper = licenseMapper;
+    }
 
     @Override
     public CustomerResponseDto toCustomerDtoFromCustomerEntity(Customer customer) {
@@ -28,9 +35,6 @@ public class CustomerMapperImpl implements CustomerMapper {
         customerResponseDto.setGender(customer.getGender());
         customerResponseDto.setContactMethod(customer.getContactMethod());
         customerResponseDto.setCustomerType(customer.getCustomerType());
-
-        // relation lara da bak
-
         return customerResponseDto;
     }
 
@@ -52,9 +56,10 @@ public class CustomerMapperImpl implements CustomerMapper {
         customer.setGender(customerRequestDto.getGender());
         customer.setContactMethod(customerRequestDto.getContactMethod());
         customer.setCustomerType(customerRequestDto.getCustomerType());
-
-        // relation lara da bak
-
+        if (customerRequestDto.getAddress() != null) {
+            customer.setAddress(addressMapper
+                    .toAddressEntityFromAddressDto(customerRequestDto.getAddress()));
+        }
         return customer;
     }
 }
