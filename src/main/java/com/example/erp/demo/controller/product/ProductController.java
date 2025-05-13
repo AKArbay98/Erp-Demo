@@ -6,7 +6,6 @@ import com.example.erp.demo.service.product.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +14,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/product")
-@RequiredArgsConstructor
 public class ProductController {
 
     private final ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
     @Operation(summary = "Retrieve all products")
     @ApiResponse(responseCode = "200", description = "Products retrieved successfully")
@@ -32,7 +34,7 @@ public class ProductController {
             @ApiResponse(responseCode = "200", description = "Product found"),
             @ApiResponse(responseCode = "404", description = "Product not found")
     })
-    @GetMapping("/{productId}")
+    @GetMapping("/id/{productId}")
     public ResponseEntity<ProductResponseDto> getProduct(@PathVariable Long productId){
         return ResponseEntity.ok(productService.getProductById(productId));
     }
@@ -53,7 +55,7 @@ public class ProductController {
             @ApiResponse(responseCode = "201", description = "Product found by License Key"),
             @ApiResponse(responseCode = "400", description = "Product not found")
     })
-    @GetMapping("/{licenseKey}")
+    @GetMapping("/license/{licenseKey}")
     public ResponseEntity<ProductResponseDto> getProductByLicenseKey(@PathVariable String licenseKey){
         return ResponseEntity.ok(productService.getProductByLicenseKey(licenseKey));
     }
