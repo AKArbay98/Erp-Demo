@@ -1,11 +1,9 @@
 package com.example.erp.demo.model.enumeration;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
 @Getter
-@AllArgsConstructor
 @ToString
 public enum ContactMethod {
 
@@ -14,4 +12,8 @@ public enum ContactMethod {
     POST("POST");
 
     private final String contactMethodName;
+
+    ContactMethod(String contactMethodName) {
+        this.contactMethodName = contactMethodName;
+    }
 }
