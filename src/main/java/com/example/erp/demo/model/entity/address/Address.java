@@ -49,7 +49,7 @@ public class Address extends BaseEntity {
             nullable = false)
     private String postalCode;
 
-    @Column(name = "verified",
+    @Column(name = "is_verified",
             nullable = false)
     private Boolean isVerified;
 
