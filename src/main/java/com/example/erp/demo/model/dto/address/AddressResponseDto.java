@@ -1,9 +1,5 @@
 package com.example.erp.demo.model.dto.address;
 
-import com.example.erp.demo.model.dto.customer.CustomerResponseDto;
-import com.example.erp.demo.model.dto.producer.ProducerResponseDto;
-import com.example.erp.demo.model.entity.customer.Customer;
-import com.example.erp.demo.model.entity.producer.Producer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +15,4 @@ public class AddressResponseDto {
     private String addressLineTwo;
     private String postalCode;
     private Boolean isVerified;
-    private CustomerResponseDto customer;
-    private ProducerResponseDto producer;
 }
