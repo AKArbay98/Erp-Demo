@@ -24,7 +24,8 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     public CustomerServiceImpl(CustomerRepository customerRepository,
-                               CustomerMapperImpl customerMapper, LicenseRepository licenseRepository) {
+                               CustomerMapperImpl customerMapper,
+                               LicenseRepository licenseRepository) {
         this.customerRepository = customerRepository;
         this.customerMapper = customerMapper;
         this.licenseRepository = licenseRepository;
@@ -62,10 +63,11 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerResponseDto getCustomerByLicenseKey(String licenseKey) {
-        return licenseRepository.findByLicenseKey(licenseKey)
-                .orElseThrow(() ->
-                        new LicenseNotFoundException("License not found: " + licenseKey))
-                .getCustomer();
+        return customerMapper.toCustomerDtoFromCustomerEntity(
+                licenseRepository.findByLicenseKey(licenseKey)
+                        .orElseThrow(() -> new LicenseNotFoundException("License not found: " + licenseKey))
+                        .getCustomer()
+        );
     }
 
 }
