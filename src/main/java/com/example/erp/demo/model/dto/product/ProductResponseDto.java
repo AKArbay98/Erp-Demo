@@ -19,26 +19,15 @@ import java.util.List;
 public class ProductResponseDto {
 
     private String name;
-
     private String productVersion;
-
     private String description;
-
     private String sku;
-
     private BigDecimal basePrice;
-
     private BigDecimal discountedPrice;
-
     private LocalDateTime releaseDate;
-
     private LocalDate supportExpiration;
-
     private BigDecimal customerSatisfaction;
-
     private String comment;
-
     private List<LicenseResponseDto> licenses;
-
     private ProducerResponseDto producer;
 }

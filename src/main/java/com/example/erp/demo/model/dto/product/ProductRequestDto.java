@@ -17,26 +17,13 @@ import java.util.List;
 public class ProductRequestDto {
 
     private String name;
-
     private String productVersion;
-
     private String description;
-
     private String sku;
-
     private BigDecimal basePrice;
-
     private BigDecimal discountedPrice;
-
     private LocalDateTime releaseDate;
-
     private LocalDate supportExpiration;
-
     private BigDecimal customerSatisfaction;
-
     private String comment;
-
-    private List<LicenseRequestDto> licenses;
-
-    private ProducerRequestDto producer;
 }
