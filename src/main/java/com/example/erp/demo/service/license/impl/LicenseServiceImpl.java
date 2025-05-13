@@ -25,6 +25,9 @@ public class LicenseServiceImpl implements LicenseService {
     @Override
     public boolean isValidLicenseKey(String licenseKey) {
         License license = licenseRepository.findByLicenseKey(licenseKey).orElse(null);
+        if(license == null){
+            return  false;
+        }
         return license.getLicenseStatus() == LicenseStatus.ACTIVE &&
                 LocalDate.now().isBefore(license.getEndDate()) &&
                 LocalDate.now().isAfter(license.getStartDate());
