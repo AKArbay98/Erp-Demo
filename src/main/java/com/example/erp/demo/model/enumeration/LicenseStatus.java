@@ -1,11 +1,9 @@
 package com.example.erp.demo.model.enumeration;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
 @Getter
-@AllArgsConstructor
 @ToString
 public enum LicenseStatus {
 
@@ -15,4 +13,7 @@ public enum LicenseStatus {
 
     private final String licenseStatusName;
 
+    LicenseStatus(String licenseStatusName) {
+        this.licenseStatusName = licenseStatusName;
+    }
 }
