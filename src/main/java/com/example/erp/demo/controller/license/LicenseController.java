@@ -1,21 +1,20 @@
 package com.example.erp.demo.controller.license;
 
-import com.example.erp.demo.model.dto.license.LicenseRequestDto;
 import com.example.erp.demo.service.license.LicenseService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/license")
-@RequiredArgsConstructor
 public class LicenseController {
 
     private final LicenseService licenseService;
+
+    public LicenseController(LicenseService licenseService) {
+        this.licenseService = licenseService;
+    }
 
     @Operation(summary = "Check if a license key is valid")
     @ApiResponses({
@@ -34,9 +33,8 @@ public class LicenseController {
             @ApiResponse(responseCode = "400", description = "Invalid request data")
     })
     @PostMapping
-    public ResponseEntity<Void> createLicenseKey(Long customerId, Long productId){
-        licenseService.createLicenseKey(customerId,productId);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public String createLicenseKey(Long customerId, Long productId){
+        return licenseService.createLicenseKey(customerId,productId);
     }
 
 
