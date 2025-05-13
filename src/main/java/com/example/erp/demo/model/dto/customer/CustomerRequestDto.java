@@ -1,17 +1,12 @@
 package com.example.erp.demo.model.dto.customer;
 
 import com.example.erp.demo.model.dto.address.AddressRequestDto;
-import com.example.erp.demo.model.dto.license.LicenseRequestDto;
-import com.example.erp.demo.model.entity.address.Address;
-import com.example.erp.demo.model.entity.license.License;
 import com.example.erp.demo.model.enumeration.ContactMethod;
 import com.example.erp.demo.model.enumeration.CustomerType;
 import com.example.erp.demo.model.enumeration.Gender;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.time.LocalDate;
-import java.util.List;
 
 @Getter
 @Setter
@@ -30,5 +25,4 @@ public class CustomerRequestDto {
     private ContactMethod contactMethod;
     private CustomerType customerType;
     private AddressRequestDto address;
-    private List<LicenseRequestDto> licenses;
 }
